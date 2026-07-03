@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
+    "lint": "pnpm biome check . && eslint .",
+    "lint:fix": "pnpm biome check . --write --unsafe && eslint . --fix",
     "format": "biome format --write"
   },
   "dependencies": {
@@ -15,12 +16,21 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "1.9.4",
+    "@next/eslint-plugin-next": "^15.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "^15.1.6",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prefer-arrow-functions": "^3.6.2",
+    "eslint-plugin-react": "^7.37.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
