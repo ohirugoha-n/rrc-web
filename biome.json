@@ -1,37 +1,106 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
-  },
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "formatWithErrors": true,
+    "ignore": [
+      "**/coverage/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/.vercel/**",
+      "**/node_modules/**",
+      "next-env.d.ts",
+      "*.html",
+      "*.css",
+      "*.js",
+      "*.config.*",
+      "$path.ts"
+    ]
+  },
+  "organizeImports": {
+    "enabled": false
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "useHookAtTopLevel": "error",
+        "useJsxKeyInIterable": "error"
+      },
+      "complexity": {
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "error",
+        "noVoid": "error",
+        "useArrowFunction": "error"
+      },
+      "nursery": {
+        "noExportedImports": "error",
+        "useSortedClasses": "error",
+        "noHeadElement": "error",
+        "noImgElement": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "noNegationElse": "error",
+        "useBlockStatements": "off",
+        "useFragmentSyntax": "error",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "strictCase": true,
+            "filenameCases": ["kebab-case"]
+          }
+        }
+      },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noCommentText": "error"
       }
     },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
+    "ignore": [
+      "**/coverage/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/.vercel/**",
+      "**/node_modules/**",
+      "next-env.d.ts",
+      "*.html",
+      "*.css",
+      "*.js",
+      "*.config.*",
+      "$path.ts"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single"
     }
   },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
+  "overrides": [
+    {
+      "include": ["*.ts", "*.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "error"
+          }
+        }
+      }
+    },
+    {
+      "include": ["src/pages/**/*", "src/app/**/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
       }
     }
-  }
+  ]
 }
