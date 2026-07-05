@@ -45,10 +45,11 @@ PRを送ってください！
 
 ## misc
 ### 自チームのページを見る
-デフォルトでは、localhost:3000にアクセスするとrrcsangi.comと同じページが表示されます。src/proxy.tsのlocalhostのあるif文の箇所をrootからチームのディレクトリに変えると見れます
+デフォルトでは、localhost:3000にアクセスするとrrcsangi.comと同じページが表示されます。src/proxy.tsのlocalhostのあるif文の箇所をrootからチームのディレクトリに変えるとlocalhostで自チームページが見れます
 
 自己責任でやってほしいですが、PCのほうのhostsファイルを書き換える方法もあります
 
-### commit/push
-commit, pushにはbiomeのチェック
-pnpm run lint:fix
+### commitできないとき
+commit, push時にbiomeによるコードチェックがされます。失敗するとcommitできません。
+
+`pnpm run lint:fix`を実行すると自動でコードをととのえてくれるので、実行後再びaddしてcommitしてみてください
