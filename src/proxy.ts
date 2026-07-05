@@ -6,6 +6,12 @@ export function proxy(req: NextRequest) {
 
   const url = req.nextUrl.clone();
 
+  // localhostで開発中のページに飛ばせるようにすると便利(ここではroot)
+  if (host.startsWith('localhost')) {
+    url.pathname = `/root${pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
   if (host.startsWith('rrcsangi.')) {
     url.pathname = `/root${pathname}`;
     return NextResponse.rewrite(url);
