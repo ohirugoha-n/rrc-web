@@ -1,6 +1,6 @@
 # ロボカップ研究部webサイト(仮)
 
-rrcsangi.com
+https://rrcsangi.com
 
 チームごとにディレクトリを作って、そこにページを置いてもらう形になっています<br>
 <span style="color: gray">
