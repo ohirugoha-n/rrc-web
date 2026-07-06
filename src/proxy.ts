@@ -4,6 +4,10 @@ export function proxy(req: NextRequest) {
   const host = req.headers.get('host') ?? '';
   const pathname = req.nextUrl.pathname;
 
+  if (pathname === '/favicon.ico' || pathname.startsWith('/_next')) {
+    return NextResponse.next();
+  }
+
   const url = req.nextUrl.clone();
 
   // localhostで開発中のページに飛ばせるようにすると便利(ここではroot)
