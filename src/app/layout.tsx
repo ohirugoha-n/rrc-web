@@ -21,11 +21,9 @@ export const metadata: Metadata = {
   description: 'rrc-web',
 };
 
-const RootLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+type props = { children: React.ReactNode };
+
+const RootLayout = ({ children }: props) => {
   return (
     <html
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}

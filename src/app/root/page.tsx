@@ -1,9 +1,4 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
-
-export const metadata: Metadata = {
-  title: 'ロボカップ研究部HP',
-};
 
 const Page = () => {
   return (
