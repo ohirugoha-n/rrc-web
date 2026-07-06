@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ロボカップ研究部webサイト(仮)
 
-## Getting Started
+https://rrcsangi.com
 
-First, run the development server:
+チームごとにディレクトリを作って、そこにページを置いてもらう形になっています<br>
+(中身がラズパイ3である関係で、Next.jsサーバーをぽんぽん立てられるか怪しかったのでこうなっています...)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+もしサーバーなどを持っているなら、そもそもこれを使わず持っている方で立ててもらうこともできます！(ドメインはわたします)
+
+## セットアップ
+git, pnpmが必要です
+### 初期設定
+以下のコマンドを実行してください
+```
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 起動方法
+```
+pnpm run dev
+```
+Webサイトが`http://localhost:3000`で起動します
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 開発について
+開発の流れはこんな感じです:
+- チームのブランチを作る
+- ディレクトリを作る
+- 作業
+- プルリクエスト
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ディレクトリ構造はこんな感じになっています:
+```
+src/
+└── app/
+    ├── root/
+    ├── team-a/
+    └── team-b/
 
-## Learn More
+public/
+├── team-a/
+└── team-b/
+```
 
-To learn more about Next.js, take a look at the following resources:
+mainからチーム名のブランチをきって、そこで作業してください
+```
+git checkout -b "チーム名"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+基本は`src/app/(チーム名)`, `public/(チーム名)`以下を編集する感じです。src/app/のほうにはページを、public/のほうには画像などを置くイメージです
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+新しくパッケージなどを入れたいときは教えてください
 
-## Deploy on Vercel
+## 完成したら
+PRを送ってください！
+このとき、差分は自チームディレクトリ以下だけにしてください
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+マージされてちょっとしたら、(チーム名).rrcsangi.comで作ったページが見れるようになってると思います。おめでとう🎉
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+(PR気付いてなかったら教えてください)
+
+## misc
+### 自チームのページを見る
+デフォルトでは、localhost:3000にアクセスするとrrcsangi.comと同じページが表示されます。src/proxy.tsのlocalhostのあるif文の箇所をrootからチームのディレクトリに変えるとlocalhostで自チームページが見れます
+
+自己責任でやってほしいですが、PCのほうのhostsファイルを書き換える方法もあります
+
+### commitできないとき
+commit, push時に自動でコードチェックがされます。失敗するとcommitできません。
+
+`pnpm run lint:fix`を実行すると自動でコードをととのえてくれるので、実行後再びaddしてcommitしてみてください
+
+### 対応
+`team-a.rrcsangi.com`にアクセスしたときに表示されるページが、`src/app/team-a/page.tsx`です。
