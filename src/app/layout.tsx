@@ -1,16 +1,13 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { M_PLUS_Rounded_1c } from 'next/font/google';
 
 import type { Metadata } from 'next';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const mPlusRounded = M_PLUS_Rounded_1c({
+  weight: ['400', '700'], // 必要な太さだけ指定
+  variable: '--font-mplus-rounded',
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,10 +22,7 @@ type props = { children: React.ReactNode };
 
 const RootLayout = ({ children }: props) => {
   return (
-    <html
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      lang='en'
-    >
+    <html className={`${mPlusRounded.variable} h-full antialiased`} lang='ja'>
       <body className='flex min-h-full flex-col'>{children}</body>
     </html>
   );
