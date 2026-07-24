@@ -1,4 +1,11 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
+import { Button } from '@/components/ui/button';
+
 export const Header = () => {
+  const router = useRouter();
   const menu_items: { name: string; href: string }[] = [
     { name: 'ダミー1', href: '/dummy1' },
     { name: 'ダミー2', href: '/dummy2' },
@@ -11,15 +18,15 @@ export const Header = () => {
         <p className='font-bold text-xl'>RRC</p>
         <p className='font-bold text-md'>TMCIT</p>
       </div>
-      <div className='flex flex-row'>
+      <div className='flex flex-row space-x-4'>
         {menu_items.map((item) => (
-          <a
-            className='mx-2 rounded-md bg-slate-500 px-2 py-1 font-bold text-lg text-white hover:bg-slate-400'
-            href={item.href}
+          <Button
+            className='h-12 rounded-md bg-slate-500 font-bold text-lg text-white hover:scale-105 hover:bg-slate-400'
             key={item.name}
+            onClick={() => router.push(item.href)}
           >
             {item.name}
-          </a>
+          </Button>
         ))}
       </div>
     </header>
