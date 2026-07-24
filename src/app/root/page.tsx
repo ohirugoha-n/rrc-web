@@ -13,6 +13,7 @@ const Page = () => {
       </div>
       <Image alt='img' height='100' src='/root/img.webp' width='100' />
       <Button className='h-40 w-100 rounded-md text-2xl'>ボタン</Button>
+      <div className='h-150 w-30 bg-sky-400'>dd</div>
     </div>
   );
 };

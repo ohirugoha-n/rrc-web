@@ -1,8 +1,15 @@
 import type { Metadata } from 'next';
 
+import { Header } from '@/components/root/header';
+
 type props = { children: React.ReactNode };
 const RootLayout = ({ children }: props) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Header />
+      {children}
+    </div>
+  );
 };
 export default RootLayout;
 
