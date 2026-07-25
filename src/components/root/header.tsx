@@ -22,6 +22,7 @@ export const Header = () => {
           <Link
             className={cn(
               buttonVariants(),
+              'bg-transparent',
               'h-12 rounded-md hover:scale-105 hover:bg-slate-500',
               'font-bold text-lg text-white',
             )}
