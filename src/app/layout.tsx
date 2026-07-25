@@ -1,15 +1,13 @@
-import { M_PLUS_Rounded_1c, Figtree } from 'next/font/google';
+import { M_PLUS_Rounded_1c } from 'next/font/google';
 
 import type { Metadata } from 'next';
 
 import './globals.css';
 import { cn } from '@/lib/utils';
 
-const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' });
-
 const mPlusRounded = M_PLUS_Rounded_1c({
   weight: ['400', '700'], // 必要な太さだけ指定
-  variable: '--font-mplus-rounded',
+  variable: '--font-sans',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -32,7 +30,6 @@ const RootLayout = ({ children }: props) => {
         'antialiased',
         mPlusRounded.variable,
         'font-sans',
-        figtree.variable,
       )}
       lang='ja'
     >
