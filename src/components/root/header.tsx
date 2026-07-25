@@ -1,16 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export const Header = () => {
-  const router = useRouter();
   const menu_items: { name: string; href: string }[] = [
-    { name: 'ダミー1', href: '/dummy1' },
-    { name: 'ダミー2', href: '/dummy2' },
-    { name: 'ダミー3', href: '/dummy3' },
-    { name: 'ダミー4------', href: '/dummy4' },
+    { name: 'ホーム', href: '/' },
+    { name: 'チーム', href: '/teams' },
+    { name: 'ブログ', href: '/blogs' },
   ];
   return (
     <header className='space-between sticky top-0 flex h-20 w-screen flex-row items-center justify-between bg-slate-700 px-2'>
@@ -18,15 +17,19 @@ export const Header = () => {
         <p className='font-bold text-xl'>RRC</p>
         <p className='font-bold text-md'>TMCIT</p>
       </div>
-      <div className='flex flex-row space-x-4'>
+      <div className='flex flex-row space-x-4 pr-4'>
         {menu_items.map((item) => (
-          <Button
-            className='h-12 rounded-md bg-slate-500 font-bold text-lg text-white hover:scale-105 hover:bg-slate-400'
+          <Link
+            className={cn(
+              buttonVariants(),
+              'h-12 rounded-md hover:scale-105 hover:bg-slate-500',
+              'font-bold text-lg text-white',
+            )}
+            href={item.href}
             key={item.name}
-            onClick={() => router.push(item.href)}
           >
             {item.name}
-          </Button>
+          </Link>
         ))}
       </div>
     </header>
