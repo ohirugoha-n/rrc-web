@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export const Header = () => {
-  const _router = useRouter();
   const menu_items: { name: string; href: string }[] = [
     { name: 'ホーム', href: '/' },
     { name: 'チーム', href: '/teams' },
