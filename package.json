@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "pnpm biome check . && eslint .",
     "lint:fix": "pnpm biome check . --write --unsafe && eslint . --fix",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "db:enable-wal": "sqlite3 prisma/dev.db 'PRAGMA journal_mode = WAL;'"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
