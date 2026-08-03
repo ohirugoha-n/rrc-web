@@ -10,7 +10,7 @@
     "lint:fix": "pnpm biome check . --write --unsafe && eslint . --fix",
     "format": "biome format --write",
     "db:enable-wal": "sqlite3 prisma/dev.db 'PRAGMA journal_mode = WAL;'",
-    "setup:nobuild": "pnpm install && pnpm prisma generate && pnpm prisma migrate deploy && pnpm run db:enable-wal",
+    "setup:nobuild": "pnpm install && pnpm approve-builds && pnpm prisma generate && pnpm prisma migrate deploy && pnpm run db:enable-wal",
     "setup": "pnpm run setup:nobuild && pnpm run build"
   },
   "dependencies": {
